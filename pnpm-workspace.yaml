@@ -1,4 +1,4 @@
 packages:
-  - 'src/packages/apps/*'
-  - 'src/packages/shared/blocks/*'
-  - 'src/packages/shared/components/*'
+  - 'packages/apps/*'
+  - 'packages/shared/blocks/*'
+  - 'packages/shared/components/*'
