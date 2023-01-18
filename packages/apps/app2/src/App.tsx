@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import React from 'react'
 import './App.css'
 
+import fibonacci from '@nium/fibonacci'
 import Counter from '@nium/react-counter'
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
       <div className="card">
         <Counter />
       </div>
+      <div className="card">5th fibonacci is {fibonacci(5)}</div>
     </div>
   )
 }
