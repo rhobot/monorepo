@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "lint": "eslint **/*.ts **/*.tsx",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -18,6 +19,8 @@
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
+    "eslint": "^8.32.0",
+    "eslint-config-custom": "workspace:*",
     "lodash": "^4.17.21",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"

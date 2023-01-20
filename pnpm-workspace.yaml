@@ -1,5 +1,5 @@
 packages:
   - 'packages/apps/*'
-  - 'packages/shared/blocks/*'
   - 'packages/shared/components/*'
   - 'packages/shared/utils/*'
+  - 'packages/dev/*'

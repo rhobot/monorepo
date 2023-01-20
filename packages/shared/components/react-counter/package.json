@@ -5,6 +5,7 @@
   "main": "src/Counter.tsx",
   "type": "module",
   "scripts": {
+    "lint": "eslint **/*.ts **/*.tsx",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
@@ -17,6 +18,8 @@
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
+    "eslint": "^8.32.0",
+    "eslint-config-custom": "workspace:*",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
   }
