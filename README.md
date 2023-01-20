@@ -9,11 +9,12 @@ A working example of a monorepo with pnpm workspace.
 1. Each sub-project was created with Vite.
 1. Globally set up Prettier, ESLint, and TypeScript check by placing their settings to the root.
 
-## Folder structer
+## Folder structure
 
 ```
 /pnpm-workspace-example
   .prettierrc.json
+  tsconfig.json
   /packages
     /apps
       /app1
