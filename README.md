@@ -7,8 +7,7 @@ A working example of a monorepo with pnpm workspace.
 ## Features
 
 1. Each sub-project was created with Vite.
-1. Set up Prettier and TypeScript check globally for IDE by placing the settings in the root.
-1. Set up ESLint "globally" by
+1. Set up TypeScrip, ESLint, Prettier "globally" by creating their own packages and getting them imported in other packages.
 
 ## Folder structure
 
@@ -28,6 +27,7 @@ A working example of a monorepo with pnpm workspace.
         validator.ts
     /dev
       /eslint-config-custom
+      /tsconfig
 ```
 
 ## Resource
