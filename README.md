@@ -6,14 +6,17 @@ Try Vite, pnpm workspace, SWR.
 
 ```
 /pnpm-workspace-example
+  .prettierrc.json
   /packages
     /apps
       /app1
       /app2
     /shared
       /components
-        /component1
-        /component2
+        Component1.tsx
+        Component2.tsx
+      /utils
+        validator.ts
 ```
 
 ## Resource
