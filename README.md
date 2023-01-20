@@ -7,7 +7,7 @@ A working example of a monorepo with pnpm workspace.
 ## Features
 
 1. Each sub-project was created with Vite.
-1. Set up TypeScrip, ESLint, Prettier "globally" by creating their own packages and getting them imported in other packages.
+1. tsconfig.json, ESLint config, and Prettier config were made as reusable packages and use them in all other packages.
 
 ## Folder structure
 
@@ -28,6 +28,7 @@ A working example of a monorepo with pnpm workspace.
     /dev
       /eslint-config-custom
       /tsconfig
+      /prettier-config
 ```
 
 ## Resource
