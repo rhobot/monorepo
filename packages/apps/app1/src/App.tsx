@@ -7,7 +7,7 @@ import Counter from '@nium/react-counter'
 function App(): JSX.Element {
   return (
     <div className="App">
-      <h1>Hello! I'm App 1</h1>
+      <h1>Hello! I&apos;m App 1</h1>
       <div className="card">20th fibonacci is {fibonacci(20)}</div>
       <div className="card">
         <Counter />

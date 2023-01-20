@@ -1,15 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import React, { useState } from 'react'
 import './Counter.css'
 
-function Counter() {
+function Counter(): JSX.Element {
   const [count, setCount] = useState(0)
 
   return (
     <div className="Counter">
       <div className="card">
         <div>I am a reusable counter!</div>
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button
+          onClick={() => {
+            setCount((count) => count + 1)
+          }}
+        >
           count is {count}
         </button>
       </div>

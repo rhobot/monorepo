@@ -12,6 +12,8 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    '@typescript-eslint/space-before-function-paren': 'off',
+    '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
     'comma-dangle': ['error', 'always-multiline'],
   },
 }

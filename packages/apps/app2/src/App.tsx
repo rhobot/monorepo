@@ -4,7 +4,7 @@ import './App.css'
 import fibonacci from '@nium/fibonacci'
 import Counter from '@nium/react-counter'
 
-function App() {
+function App(): JSX.Element {
   return (
     <div className="App">
       <h1>Hi! My name is App 2!</h1>
