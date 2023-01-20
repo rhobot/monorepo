@@ -1,8 +1,9 @@
 {
-  "name": "@nium/tsconfig",
+  "name": "@nium/prettier-config",
   "version": "1.0.0",
   "description": "",
-  "main": "tsconfig.json",
+  "main": ".prettierrc.json",
+  "keywords": [],
   "license": "ISC",
   "devDependencies": {
     "prettier": "^2.8.3"
