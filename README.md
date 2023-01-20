@@ -1,8 +1,15 @@
 # pnpm-workspace-example
 
-Try Vite, pnpm workspace, SWR.
+## Overview
 
-## Suggested folder structer
+A working example of a monorepo with pnpm workspace.
+
+## Features
+
+1. Each sub-project was created with Vite.
+1. Globally set up Prettier, ESLint, and TypeScript check by placing their settings to the root.
+
+## Folder structer
 
 ```
 /pnpm-workspace-example
@@ -18,7 +25,3 @@ Try Vite, pnpm workspace, SWR.
       /utils
         validator.ts
 ```
-
-## Resource
-
-https://blog.nrwl.io/setup-a-monorepo-with-pnpm-workspaces-and-speed-it-up-with-nx-bc5d97258a7e
