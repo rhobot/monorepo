@@ -1,0 +1,8 @@
+{
+  "name": "@nium/tsconfig",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tsconfig.json",
+  "keywords": [],
+  "license": "ISC"
+}
