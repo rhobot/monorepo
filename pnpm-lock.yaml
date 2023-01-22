@@ -66,6 +66,35 @@ importers:
       typescript: 4.9.4
       vite: 4.0.4
 
+  packages/apps/currency-mobile-app:
+    specifiers:
+      '@nium/prettier-config': workspace:*
+      '@nium/tsconfig': workspace:*
+      '@types/react': ^18.0.26
+      '@types/react-dom': ^18.0.9
+      '@vitejs/plugin-react': ^3.0.0
+      eslint: ^8.32.0
+      eslint-config-custom: workspace:*
+      prettier: ^2.8.3
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      typescript: ^4.9.3
+      vite: ^4.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    devDependencies:
+      '@nium/prettier-config': link:../../dev/prettier-config
+      '@nium/tsconfig': link:../../dev/tsconfig
+      '@types/react': 18.0.26
+      '@types/react-dom': 18.0.10
+      '@vitejs/plugin-react': 3.0.1_vite@4.0.4
+      eslint: 8.32.0
+      eslint-config-custom: link:../../dev/eslint-config-custom
+      prettier: 2.8.3
+      typescript: 4.9.4
+      vite: 4.0.4
+
   packages/dev/eslint-config-custom:
     specifiers:
       '@typescript-eslint/eslint-plugin': ^5.48.2
@@ -135,7 +164,6 @@ importers:
       '@vitejs/plugin-react': ^3.0.0
       eslint: ^8.32.0
       eslint-config-custom: workspace:*
-      lint: eslint **/*.ts **/*.tsx
       lodash: ^4.17.21
       prettier: ^2.8.3
       react: ^18.2.0
@@ -143,7 +171,6 @@ importers:
       typescript: ^4.9.3
       vite: ^4.0.0
     dependencies:
-      lint: link:eslint **/*.ts **/*.tsx
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
