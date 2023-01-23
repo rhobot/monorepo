@@ -1,0 +1,26 @@
+.Keyboard {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  gap: 1px;
+
+  background-color: #ffffff;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Key {
+  background-color: green;
+  height: 100px;
+  flex: 1 0 calc(100% / 3 - 10px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 3em;
+
+  /* Remove button style */
+  border-width: 0;
+}
