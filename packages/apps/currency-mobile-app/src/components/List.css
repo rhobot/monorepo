@@ -1,0 +1,8 @@
+.List {
+  background-color: #ffffff;
+  width: 100%;
+  display: flex;
+  row-gap: 1px;
+
+  flex-flow: wrap;
+}

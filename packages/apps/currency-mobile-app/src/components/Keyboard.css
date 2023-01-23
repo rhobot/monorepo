@@ -12,7 +12,7 @@
 
 .Key {
   background-color: green;
-  height: 100px;
+  height: 105px;
   flex: 1 0 calc(100% / 3 - 10px);
 
   display: flex;
