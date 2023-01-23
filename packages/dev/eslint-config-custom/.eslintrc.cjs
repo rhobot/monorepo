@@ -15,5 +15,6 @@ module.exports = {
     '@typescript-eslint/space-before-function-paren': 'off',
     '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
     'comma-dangle': ['error', 'always-multiline'],
+    'react/react-in-jsx-scope': 'off',
   },
 }
