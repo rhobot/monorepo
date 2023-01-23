@@ -2,12 +2,15 @@ import './List.css'
 
 import ListItem from './ListItem'
 
-function List() {
-  const currencies = ['THB', 'KRW', 'USD', 'VND']
+type Props = {
+  currencies: string[]
+  amounts: Map<string, number>
+}
 
+function List({currencies, amounts}: Props) {
   return <div className="List">
     {currencies.map(currency => {
-      return <ListItem key={currency} currency={currency} />
+      return <ListItem key={currency} currency={currency} amount={amounts.get(currency)} />
     })}
   </div>
 }
