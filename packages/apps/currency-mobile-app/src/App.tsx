@@ -26,8 +26,9 @@ function App(): JSX.Element {
   const [amounts, setAmounts] = useState(
     new Map<string, string>(currencies.map((currency) => [currency, '0'])),
   )
-
   const { data: exchangeRateData } = useExchangeRates(currencies)
+
+  const [keyboardHeight, setKeyboardHeight] = useState(0)
 
   /**
    * Based on the key, construct the amount
@@ -109,8 +110,14 @@ function App(): JSX.Element {
         currencies={currencies}
         amounts={amounts}
         onListItemClick={handleListItemClick}
+        keyboardHeight={keyboardHeight}
       />
-      <Keyboard onKeyClick={updateAmount} />
+      <Keyboard
+        onKeyClick={updateAmount}
+        onHeightUpdate={(height) => {
+          setKeyboardHeight(height)
+        }}
+      />
     </div>
   )
 }

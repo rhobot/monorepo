@@ -18,5 +18,6 @@ module.exports = {
     '@typescript-eslint/strict-boolean-expressions': 'off',
     'comma-dangle': ['error', 'always-multiline'],
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-space-before-closing': 'error',
   },
 }
