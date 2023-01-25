@@ -1,13 +1,16 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Keyboard from './components/Keyboard'
 import List from './components/List'
+import useExchangeRates from './hooks/useExchangeRates'
 
 function App(): JSX.Element {
-  const [currencies, setCurrencies] = useState(['THB', 'USD'])
+  const currencies = ['THB', 'VND', 'KRW', 'USD']
   const [amounts, setAmounts] = useState(
     new Map<string, string>(currencies.map((currency) => [currency, '0'])),
   )
+
+  const { data: exchangeRateData } = useExchangeRates(currencies)
 
   /**
    * Based on the key, construct the amount
@@ -25,10 +28,7 @@ function App(): JSX.Element {
       return
     }
 
-    console.log('key pressed', key)
-    console.log(amount)
-
-    if (!isNaN(parseInt(key))) {
+    if (['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(key)) {
       amount = amount === '0' ? key : amount + key
     } else if (key === 'C') {
       amount = '0'
@@ -41,12 +41,41 @@ function App(): JSX.Element {
     setAmounts(newAmounts)
   }
 
-  console.log('the key is', import.meta.env.VITE_EXCHANGE_RATES_DATA_API_KEY)
+  /**
+   * Update the amounts of other currencies based on the amount and exchange rates.
+   */
+  function updateOtherAmounts(): void {
+    if (!exchangeRateData?.rates) {
+      return
+    }
+
+    const newAmounts = new Map(amounts)
+
+    for (const [currency, exchangeRate] of Object.entries(
+      exchangeRateData.rates,
+    )) {
+      if (currency === currencies[0]) {
+        continue
+      }
+
+      // Output: ABC amount = DEF amount * ABC usd rate / DEF usd rate
+      const newAmount =
+        ((newAmounts.get(currencies[0]) || 0) * exchangeRate) /
+        exchangeRateData.rates[currencies[0]]
+      newAmounts.set(currency, `${newAmount}`)
+    }
+
+    setAmounts(newAmounts)
+  }
+
+  useEffect(() => {
+    updateOtherAmounts()
+  }, [amounts.get(currencies[0])])
 
   return (
     <div className="App">
       <List currencies={currencies} amounts={amounts} />
-      <Keyboard updateAmount={updateAmount} />
+      <Keyboard onKeyClick={updateAmount} />
     </div>
   )
 }

@@ -4,7 +4,7 @@ import ListItem from './ListItem'
 
 interface Props {
   currencies: string[]
-  amounts: Map<string, number>
+  amounts: Map<string, string>
 }
 
 function List({ currencies, amounts }: Props): JSX.Element {

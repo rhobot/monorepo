@@ -1,10 +1,10 @@
 import './Keyboard.css'
 
 interface Props {
-  updateAmount: (key: string) => void
+  onKeyClick: (key: string) => void
 }
 
-function Keyboard({ updateAmount }: Props): JSX.Element {
+function Keyboard({ onKeyClick }: Props): JSX.Element {
   const keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '·', '0', 'C']
 
   return (
@@ -17,7 +17,7 @@ function Keyboard({ updateAmount }: Props): JSX.Element {
             className="Key"
             value={key}
             onClick={() => {
-              updateAmount(key)
+              onKeyClick(key)
             }}
           />
         )

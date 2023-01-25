@@ -2,10 +2,10 @@ import './ListItem.css'
 
 interface Props {
   currency: string
-  amount?: number
+  amount?: string
 }
 
-function ListItem({ currency, amount = 0 }: Props): JSX.Element {
+function ListItem({ currency, amount = '0' }: Props): JSX.Element {
   return (
     <div className="ListItem">
       <div className="Currency">{currency}</div>
