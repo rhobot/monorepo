@@ -1,6 +1,18 @@
 import useSWR from 'swr'
 
-async function fetchExchangeRates(url) {
+const LOCAL_STORAGE_EXCHANGE_RATES_KEY = 'exchangeRates'
+
+interface ExchangeRatesAPIResponse {
+  success: boolean
+  timestame: number
+  base: 'USD'
+  date: string
+  rates: Record<string, number> // example: {"THB":32.840278, "VND":23450, "KRW":1233.79501, "USD":1}
+}
+
+async function fetchExchangeRates(
+  url: string,
+): Promise<Error | ExchangeRatesAPIResponse> {
   const headers = new Headers()
   headers.append('apikey', import.meta.env.VITE_EXCHANGE_RATES_DATA_API_KEY)
 
@@ -28,9 +40,10 @@ interface UseExchangeRates {
 function useExchangeRates(currencies: string[]): UseExchangeRates {
   // Store currency exchange rates in localstorage to save
   // TODO: Implement cache invalidation.
-  const hasCache = Boolean(localStorage.getItem('exchangeRates'))
+  const cachedData = localStorage.getItem(LOCAL_STORAGE_EXCHANGE_RATES_KEY)
+
   const { data, error, isLoading } = useSWR(
-    hasCache
+    cachedData
       ? null
       : `https://api.apilayer.com/exchangerates_data/latest?symbols=${currencies.join(
           ',',
@@ -43,7 +56,7 @@ function useExchangeRates(currencies: string[]): UseExchangeRates {
   }
 
   return {
-    data: JSON.parse(localStorage.getItem('exchangeRates')),
+    data: cachedData ? JSON.parse(cachedData) : undefined,
     error,
     isLoading,
   }

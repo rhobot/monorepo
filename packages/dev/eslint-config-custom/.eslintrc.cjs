@@ -12,8 +12,9 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    '@typescript-eslint/space-before-function-paren': 'off',
     '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
+    '@typescript-eslint/space-before-function-paren': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
     'comma-dangle': ['error', 'always-multiline'],
     'react/react-in-jsx-scope': 'off',
   },
