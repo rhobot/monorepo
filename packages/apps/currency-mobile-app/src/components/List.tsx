@@ -5,9 +5,10 @@ import ListItem from './ListItem'
 interface Props {
   currencies: string[]
   amounts: Map<string, string>
+  onListItemClick: (currency: string) => void
 }
 
-function List({ currencies, amounts }: Props): JSX.Element {
+function List({ currencies, amounts, onListItemClick }: Props): JSX.Element {
   return (
     <div className="List">
       {currencies.map((currency) => {
@@ -16,6 +17,7 @@ function List({ currencies, amounts }: Props): JSX.Element {
             key={currency}
             currency={currency}
             amount={amounts.get(currency)}
+            onClick={onListItemClick}
           />
         )
       })}

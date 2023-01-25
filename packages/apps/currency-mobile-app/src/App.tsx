@@ -21,7 +21,7 @@ function formatAmountToString(amount: number): string {
 }
 
 function App(): JSX.Element {
-  const currencies = ['THB', 'VND', 'KRW', 'USD']
+  const [currencies, setCurrencies] = useState(['THB', 'VND', 'KRW', 'USD'])
   const [amounts, setAmounts] = useState(
     new Map<string, string>(currencies.map((currency) => [currency, '0'])),
   )
@@ -84,13 +84,31 @@ function App(): JSX.Element {
     setAmounts(newAmounts)
   }
 
+  /**
+   * Switch the current currency row with the clicked row.
+   */
+  function handleListItemClick(currency: string): void {
+    const newCurrencies = [...currencies]
+    const index = newCurrencies.indexOf(currency)
+
+    const temp = newCurrencies[0]
+    newCurrencies[0] = currency
+    newCurrencies[index] = temp
+
+    setCurrencies(newCurrencies)
+  }
+
   useEffect(() => {
     updateOtherAmounts()
   }, [amounts.get(currencies[0])])
 
   return (
     <div className="App">
-      <List currencies={currencies} amounts={amounts} />
+      <List
+        currencies={currencies}
+        amounts={amounts}
+        onListItemClick={handleListItemClick}
+      />
       <Keyboard onKeyClick={updateAmount} />
     </div>
   )
