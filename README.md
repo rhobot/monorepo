@@ -1,8 +1,8 @@
-# pnpm-workspace-example
+# rhobot/monorepo
 
 ## Overview
 
-A working example of a monorepo with pnpm workspace.
+A working example of a monorepo with pnpm workspace and a few projects.
 
 ## Features
 
