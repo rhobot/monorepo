@@ -10,6 +10,12 @@ interface ExchangeRatesAPIResponse {
   rates: Record<string, number> // example: {"THB":32.840278, "VND":23450, "KRW":1233.79501, "USD":1}
 }
 
+interface UseExchangeRates {
+  data?: ExchangeRatesAPIResponse
+  error?: Error
+  isLoading: boolean
+}
+
 async function fetchExchangeRates(
   url: string,
 ): Promise<Error | ExchangeRatesAPIResponse> {
@@ -26,12 +32,6 @@ async function fetchExchangeRates(
   }
 
   return await response.json()
-}
-
-interface UseExchangeRates {
-  data?: any
-  error?: Error
-  isLoading: boolean
 }
 
 /**

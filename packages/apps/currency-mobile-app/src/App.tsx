@@ -58,9 +58,9 @@ function App(): JSX.Element {
         continue
       }
 
-      // Output: ABC amount = DEF amount * ABC usd rate / DEF usd rate
+      // ABC amount = DEF amount * ABC usd rate / DEF usd rate
       const newAmount =
-        ((newAmounts.get(currencies[0]) || 0) * exchangeRate) /
+        (parseInt(newAmounts.get(currencies[0]) ?? '0') * exchangeRate) /
         exchangeRateData.rates[currencies[0]]
       newAmounts.set(currency, `${newAmount}`)
     }
