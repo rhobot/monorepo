@@ -34,7 +34,6 @@ function Keyboard({ onKeyClick, onHeightUpdate }: Props): JSX.Element {
 
   return (
     <div ref={ref} className="Wrapper">
-      <div className="Margin" />
       <div className="Keyboard">
         {keys.map((key) => {
           return (
