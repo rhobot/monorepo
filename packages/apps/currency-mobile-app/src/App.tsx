@@ -3,6 +3,7 @@ import './App.css'
 import Keyboard from './components/Keyboard'
 import List from './components/List'
 import useExchangeRates from './hooks/useExchangeRates'
+import { Key } from './types'
 
 const DECIMALS = 2
 const THRESHOLD = 0.00001
@@ -37,7 +38,7 @@ function App(): JSX.Element {
    * · -> put dot
    * Treat 1. as 1
    */
-  function updateAmount(key: string): void {
+  function updateAmount(key: Key): void {
     let amount = amounts.get(currencies[0])
 
     if (amount === undefined) {

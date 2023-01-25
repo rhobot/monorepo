@@ -13,7 +13,6 @@ A working example of a monorepo with pnpm workspace and a few projects.
 
 ```
 /pnpm-workspace-example
-  .prettierrc.json
   tsconfig.json
   /packages
     /apps
