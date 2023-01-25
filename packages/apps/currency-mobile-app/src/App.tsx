@@ -4,6 +4,22 @@ import Keyboard from './components/Keyboard'
 import List from './components/List'
 import useExchangeRates from './hooks/useExchangeRates'
 
+const DECIMALS = 2
+const THRESHOLD = 0.00001
+
+/**
+ * Format the target amount as follows:
+ *  1. Truncate the digits to 2,
+ *  2. If the amount is 0, display it as '0'
+ */
+function formatAmountToString(amount: number): string {
+  if (amount - 0 < THRESHOLD) {
+    return '0'
+  }
+
+  return amount.toFixed(DECIMALS)
+}
+
 function App(): JSX.Element {
   const currencies = ['THB', 'VND', 'KRW', 'USD']
   const [amounts, setAmounts] = useState(
@@ -42,7 +58,7 @@ function App(): JSX.Element {
   }
 
   /**
-   * Update the amounts of other currencies based on the amount and exchange rates.
+   * Update the amounts of other currencies based on the current amount and exchange rates.
    */
   function updateOtherAmounts(): void {
     if (!exchangeRateData?.rates) {
@@ -62,7 +78,7 @@ function App(): JSX.Element {
       const newAmount =
         (parseInt(newAmounts.get(currencies[0]) ?? '0') * exchangeRate) /
         exchangeRateData.rates[currencies[0]]
-      newAmounts.set(currency, `${newAmount}`)
+      newAmounts.set(currency, formatAmountToString(newAmount))
     }
 
     setAmounts(newAmounts)
