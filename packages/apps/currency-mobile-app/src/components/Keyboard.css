@@ -15,6 +15,7 @@
 }
 
 .Key {
+  color: #ffffff;
   background-color: green;
   height: 105px;
   flex: 1 0 calc(100% / 3 - 10px);
@@ -26,5 +27,7 @@
   font-size: 3em;
 
   /* Remove button style */
+  -webkit-appearance: none;
   border-width: 0;
+  border-radius: 0;
 }
