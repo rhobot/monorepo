@@ -52,7 +52,7 @@ function useExchangeRates(currencies: string[]): UseExchangeRates {
     fetchExchangeRates,
   )
 
-  if (data) {
+  if (data && !error) {
     localStorage.setItem('exchangeRates', JSON.stringify(data))
   }
 
