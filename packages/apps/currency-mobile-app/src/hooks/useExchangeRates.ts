@@ -29,6 +29,7 @@ async function fetchExchangeRates(
 
   if (!response.ok) {
     // TODO: handle error
+    throw new Error('Unable to fetch currency rates')
   }
 
   return await response.json()
@@ -45,9 +46,9 @@ function useExchangeRates(currencies: string[]): UseExchangeRates {
   const { data, error, isLoading } = useSWR(
     cachedData
       ? null
-      : `https://api.apilayer.com/exchangerates_data/latest?symbols=${currencies.join(
-          ',',
-        )}&base=USD`,
+      : `${
+          import.meta.env.VITE_EXCHANGE_RATES_LATEST_API
+        }?symbols=${currencies.join(',')}&base=USD`,
     fetchExchangeRates,
   )
 
